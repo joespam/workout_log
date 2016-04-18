@@ -11,10 +11,12 @@ class WorkoutsController < ApplicationController
 	end
 
 	def destroy
+		@workout.destroy
+		redirect_to root_path
 	end
 
 	def index
-		@workouts = Workout.all.order("created_at DESC")
+		@workouts = Workout.all.order("date DESC")
 	end
 
 	def new
@@ -25,6 +27,11 @@ class WorkoutsController < ApplicationController
 	end
 
 	def update 
+		if @workout.update(workout_params)
+			redirect_to @workout
+		else
+			render 'edit'
+		end
 	end
 
 	private

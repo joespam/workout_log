@@ -14,7 +14,7 @@ class WorkoutsController < ApplicationController
 	end
 
 	def index
-		
+		@workouts = Workout.all.order("created_at DESC")
 	end
 
 	def new

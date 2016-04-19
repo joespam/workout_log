@@ -1,4 +1,7 @@
-- @workouts.each do |workout|
-	%h2= link_to workout.date.strftime("%A %B %m"), workout_path(workout)
-	%h3= workout.workout
-	%hr
+#index_workouts
+	- @workouts.each do |workout|
+		%h2= link_to workout.date.strftime("%A %B %d"), workout_path(workout)
+		%h3
+			%span Workout: 
+			= workout.workout
+		%hr
